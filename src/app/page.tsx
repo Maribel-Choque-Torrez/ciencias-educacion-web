@@ -1,11 +1,7 @@
 "use client";
 
 import { useVideos } from "@/hooks/useVideos";
-import {
-  sanitizeText,
-  sanitizeHTML,
-  sanitizeURL,
-} from "@/util/sanitize";
+import { sanitizeText, sanitizeHTML, sanitizeURL } from "@/util/sanitize";
 // Importaciones para el carrusel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -137,7 +133,7 @@ export default function Page() {
                 </h2>
                 <div
                   dangerouslySetInnerHTML={sanitizeHTML(
-                    institutionData?.institucion_objetivos
+                    institutionData?.institucion_objetivos,
                   )}
                 />
 
@@ -233,7 +229,7 @@ export default function Page() {
                 </h3>
                 <div
                   dangerouslySetInnerHTML={sanitizeHTML(
-                    actividades?.[0]?.video_breve_descripcion
+                    actividades?.[0]?.video_breve_descripcion,
                   )}
                 />
               </div>
@@ -311,7 +307,7 @@ export default function Page() {
             <div className="row row-cols-3 g-4 justify-content-center">
               {sedes?.map((data, _i) => {
                 const imgSrc = sanitizeURL(
-                  `${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`
+                  `${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`,
                 );
 
                 return (

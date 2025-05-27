@@ -28,14 +28,13 @@ const menuItems = [
       {
         id: "apoyo",
         label: "Apoyo Educativo",
-        path: "/apoyo"
+        path: "/apoyo",
       },
     ],
   },
 ];
 
 export const Navbar = () => {
-
   const pathname = usePathname();
 
   return (
@@ -68,17 +67,19 @@ export const Navbar = () => {
               <div className="nav-item dropdown" key={item.id}>
                 <a
                   href={item.path}
-                  className={`nav-link dropdown-toggle ${(pathname === item.path || pathname === '/orientacion' || pathname === '/apoyo') ? "active" : ""}`}
+                  className={`nav-link dropdown-toggle ${pathname === item.path || pathname === "/orientacion" || pathname === "/apoyo" ? "active" : ""}`}
                   data-bs-toggle="dropdown"
                 >
                   {item.label}
                 </a>
-                <div className={`dropdown-menu fade-down m-0 text-center text-lg-start`}>
+                <div
+                  className={`dropdown-menu fade-down m-0 text-center text-lg-start`}
+                >
                   {item.subMenu?.map((child) => (
                     <Link
                       key={child.id}
                       href={child.path}
-                      className={`dropdown-item ${pathname === child.path ? 'active' : ''}`}
+                      className={`dropdown-item ${pathname === child.path ? "active" : ""}`}
                     >
                       {child.label}
                     </Link>
@@ -93,7 +94,7 @@ export const Navbar = () => {
               >
                 {item.label}
               </Link>
-            )
+            ),
           )}
         </div>
       </div>
