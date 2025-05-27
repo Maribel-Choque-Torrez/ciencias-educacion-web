@@ -132,9 +132,9 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Bienvenido
                 </h6>
-                <h1 className="mb-4">
+                <h2 className="h1 mb-4">
                   Bienvenido a la Carrera de Ciencias de la Educación
-                </h1>
+                </h2>
                 <div
                   dangerouslySetInnerHTML={sanitizeHTML(
                     institutionData?.institucion_objetivos
@@ -204,9 +204,9 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Noticias
                 </h6>
-                <h1 className="mb-4">
+                <h3 className="h1 mb-4">
                   {sanitizeText(noticia?.[0]?.video_titulo)}
-                </h1>
+                </h3>
                 {/* {noticia?.[0]?.video_breve_descripcion && (
                   <div
                     dangerouslySetInnerHTML={sanitizeHTML(
@@ -228,9 +228,9 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Actividades
                 </h6>
-                <h1 className="mb-4">
+                <h3 className="h1 mb-4">
                   {sanitizeText(actividades?.[0]?.video_titulo)}
-                </h1>
+                </h3>
                 <div
                   dangerouslySetInnerHTML={sanitizeHTML(
                     actividades?.[0]?.video_breve_descripcion
@@ -305,7 +305,7 @@ export default function Page() {
               <h6 className="section-title bg-white text-center text-primary px-3">
                 Sedes
               </h6>
-              <h1 className="mb-5">Sedes Académicas</h1>
+              <h3 className="h1 mb-5">Sedes Académicas</h3>
             </div>
 
             <div className="row row-cols-3 g-4 justify-content-center">
@@ -351,7 +351,7 @@ export default function Page() {
                   <h6 className="section-title bg-white text-center text-primary px-3">
                     Autoridades
                   </h6>
-                  <h1 className="mb-5">Nuestras Autoridades</h1>
+                  <h3 className="h1 mb-5">Nuestras Autoridades</h3>
                 </div>
                 <div className="row g-4">
                   {institutionData?.autoridad.map((data, _i) => {
