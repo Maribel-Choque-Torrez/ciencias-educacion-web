@@ -39,7 +39,8 @@ export const usePublication = () => {
         setPreEspecialidad(
           result.filter(
             (data) =>
-              data.publicaciones_tipo && data.publicaciones_tipo === "PRE_ESPECIALIDAD",
+              data.publicaciones_tipo &&
+              data.publicaciones_tipo === "PRE_ESPECIALIDAD",
           ),
         );
       } catch (error) {
@@ -53,5 +54,13 @@ export const usePublication = () => {
     fetchInstitution();
   }, []);
 
-  return { publication, convenios, biblioteca, sedes, preEspecialidad, error, loading, };
+  return {
+    publication,
+    convenios,
+    biblioteca,
+    sedes,
+    preEspecialidad,
+    error,
+    loading,
+  };
 };

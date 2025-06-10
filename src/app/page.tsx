@@ -1,22 +1,27 @@
 "use client";
-import { institutionData } from "@/mocks/institucion";
-import { usePublication } from "@/hooks/usePublications";
+
 import { useVideos } from "@/hooks/useVideos";
-import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
+import { sanitizeText, sanitizeHTML, sanitizeURL } from "@/util/sanitize";
 // Importaciones para el carrusel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { useInstitutionData } from "@/hooks/useInstitutionData";
+import Image from "next/image";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import { usePublication } from "@/hooks/usePublications";
 
 // Rutas de imágenes
-const imgURL = `/img`;
-const imgAutoridadURL = `/img`;
-
+const imgURL = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Portada`;
+// const imgAutoridadURL = `/img`;
 
 export default function Page() {
   const { sedes } = usePublication();
+  const { institutionData, loading } = useInstitutionData();
   const { actividades, noticia } = useVideos();
-  const { sanitize } = useDOMPurify();
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>
@@ -35,10 +40,13 @@ export default function Page() {
                 key={`portada-${index}`}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
-                <img
+                <Image
                   className="img-fluid w-100"
                   src={sanitizeURL(`${imgURL}/${data.portada_imagen}`)}
                   alt=""
+                  width={1000}
+                  height={500}
+                  priority
                 />
                 <div
                   className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
@@ -106,11 +114,13 @@ export default function Page() {
                 style={{ minHeight: "400px" }}
               >
                 <div className="position-relative h-100">
-                  <img
+                  <Image
                     className="img-fluid position-absolute w-100 h-100"
-                    src="img/about.jpg"
+                    src="/img/about.jpg"
                     alt=""
                     style={{ objectFit: "cover" }}
+                    width={500}
+                    height={500}
                   />
                 </div>
               </div>
@@ -118,11 +128,13 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Bienvenido
                 </h6>
-                <h1 className="mb-4">
+                <h2 className="h1 mb-4">
                   Bienvenido a la Carrera de Ciencias de la Educación
-                </h1>
+                </h2>
                 <div
-                  dangerouslySetInnerHTML={sanitizeHTML(institutionData.institucion_objetivos)}
+                  dangerouslySetInnerHTML={sanitizeHTML(
+                    institutionData?.institucion_objetivos,
+                  )}
                 />
 
                 <div className="row gy-2 gx-4 mb-4">
@@ -179,10 +191,7 @@ export default function Page() {
                   const videoURL = sanitizeURL(noticia?.[0]?.video_enlace);
                   return videoURL ? (
                     <div className="ratio ratio-16x9">
-                      <iframe
-                        src={videoURL}
-                        title="YouTube video"
-                      />
+                      <iframe src={videoURL} title="YouTube video" />
                     </div>
                   ) : null;
                 })()}
@@ -191,10 +200,16 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Noticias
                 </h6>
-                <h1 className="mb-4">{sanitizeText(noticia?.[0]?.video_titulo)}</h1>
-                <div
-                  dangerouslySetInnerHTML={sanitizeHTML(noticia?.[0]?.video_breve_descripcion)}
-                />
+                <h3 className="h1 mb-4">
+                  {sanitizeText(noticia?.[0]?.video_titulo)}
+                </h3>
+                {/* {noticia?.[0]?.video_breve_descripcion && (
+                  <div
+                    dangerouslySetInnerHTML={sanitizeHTML(
+                      noticia?.[0]?.video_breve_descripcion
+                    )}
+                  />
+                )} */}
               </div>
             </div>
           </div>
@@ -209,12 +224,19 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Actividades
                 </h6>
-                <h1 className="mb-4">{sanitizeText(actividades?.[0]?.video_titulo)}</h1>
+                <h3 className="h1 mb-4">
+                  {sanitizeText(actividades?.[0]?.video_titulo)}
+                </h3>
                 <div
-                  dangerouslySetInnerHTML={sanitizeHTML(actividades?.[0]?.video_breve_descripcion)}
+                  dangerouslySetInnerHTML={sanitizeHTML(
+                    actividades?.[0]?.video_breve_descripcion,
+                  )}
                 />
               </div>
-              <div className="col-lg-6 py-auto wow fadeInUp" data-wow-delay="0.3s">
+              <div
+                className="col-lg-6 py-auto wow fadeInUp"
+                data-wow-delay="0.3s"
+              >
                 <div className="d-flex">
                   <div className="my-auto">
                     <button
@@ -279,14 +301,14 @@ export default function Page() {
               <h6 className="section-title bg-white text-center text-primary px-3">
                 Sedes
               </h6>
-              <h1 className="mb-5">Sedes Académicas</h1>
+              <h3 className="h1 mb-5">Sedes Académicas</h3>
             </div>
 
             <div className="row row-cols-3 g-4 justify-content-center">
               {sedes?.map((data, _i) => {
-                const imgSrc = data.publicaciones_imagen ? 
-                  sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`) : 
-                  null;
+                const imgSrc = sanitizeURL(
+                  `${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`,
+                );
 
                 return (
                   <div
@@ -297,16 +319,20 @@ export default function Page() {
                     <div className="course-item bg-light">
                       <div className="position-relative overflow-hidden">
                         {imgSrc && (
-                          <img
+                          <Image
                             className="img-fluid"
                             src={imgSrc}
+                            width={500}
+                            height={500}
                             alt=""
                           />
                         )}
                         <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"></div>
                       </div>
                       <div className="text-center p-4 pb-0">
-                        <h5 className="mb-4">{sanitizeText(data.publicaciones_titulo)}</h5>
+                        <h5 className="mb-4">
+                          {sanitizeText(data.publicaciones_titulo)}
+                        </h5>
                       </div>
                     </div>
                   </div>
@@ -321,13 +347,11 @@ export default function Page() {
                   <h6 className="section-title bg-white text-center text-primary px-3">
                     Autoridades
                   </h6>
-                  <h1 className="mb-5">Nuestras Autoridades</h1>
+                  <h3 className="h1 mb-5">Nuestras Autoridades</h3>
                 </div>
                 <div className="row g-4">
                   {institutionData?.autoridad.map((data, _i) => {
-                    const imgSrc = data.foto_autoridad ? 
-                      sanitizeURL(`${imgAutoridadURL}/${data.foto_autoridad}`) : 
-                      null;
+                    const imgSrc = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Autoridad/${data.foto_autoridad}`;
 
                     return (
                       <div
@@ -338,17 +362,21 @@ export default function Page() {
                         <div className="team-item bg-light">
                           <div className="overflow-hidden">
                             {imgSrc && (
-                              <img
+                              <Image
                                 className="img-fluid"
-                                style={{ height: '100%' }}
+                                style={{ height: "100%" }}
                                 src={imgSrc}
                                 alt=""
+                                width={500}
+                                height={500}
                               />
                             )}
                           </div>
 
                           <div className="text-center p-4">
-                            <h5 className="mb-0">{sanitizeText(data.nombre_autoridad)}</h5>
+                            <h5 className="mb-0">
+                              {sanitizeText(data.nombre_autoridad)}
+                            </h5>
                             <small>{sanitizeText(data.cargo_autoridad)}</small>
                           </div>
                         </div>
