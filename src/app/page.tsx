@@ -105,62 +105,63 @@ export default function Page() {
 
       <main>
         {/* <!-- Bienvenida--> */}
-<div className="container-xxl py-5">
-  <div className="container">
-    <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                  <h6 className="section-title bg-white text-center text-primary px-3">
-                    Bienvenido
-                  </h6>
-                  <h3 className="h1 mb-5">¡Bienvenidos a la brillante carrera de Ciencias de la Educación de la Universidad Pública de El Alto!</h3>
+        <div className="container-xxl py-5">
+          <div className="container">
+            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+              <h6 className="section-title bg-white text-center text-primary px-3">
+                Bienvenido
+              </h6>
+              <h3 className="h1 mb-5">¡Bienvenidos a la brillante carrera de Ciencias de la Educación de la Universidad Pública de El Alto!</h3>
+            </div>
+            <div className="text-center ">
+              <h5 className="text-primary">
+                En nuestra carrera fomentamos el desarrollo del pensamiento crítico, la innovación pedagógica y el compromiso de desarrollar profesionales de alto nivel.
+                Formamos profesionales con alto conocimiento, habilidades y destrezas, capaces de incursionar en el ámbito educativo y promover la construcción de una
+                educación de calidad, en el marco de la ética, responsabilidad y vocación de servicio.
+              </h5>
+              <h5 className="text-danger py-3">
+                Explora nuestra página para conocer nuestra oferta académica, nuestras actividades académicas y nuestros proyectos de investigación.
+                ¡Descubre todo lo que la carrera Ciencias de la Educación tiene para ofrecerles!
+              </h5>
+            </div >
+            {/* Misión, Visión y Objetivos*/}
+            <div className="row g-4 py-5">
+              <div className="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="h-100">
+                  <h3 className="mb-4">Misión</h3>
+                  <p className="mb-4 text-justify">
+                    {stripHtml(sanitizeText(institutionData?.institucion_mision))}
+                  </p>
                 </div>
-<div className="text-center ">
-<h5 className="text-primary">
-En nuestra carrera fomentamos el desarrollo del pensamiento crítico, la innovación pedagógica y el compromiso de desarrollar profesionales de alto nivel. 
-Formamos profesionales con alto conocimiento, habilidades y destrezas, capaces de incursionar en el ámbito educativo y promover la construcción de una
- educación de calidad, en el marco de la ética, responsabilidad y vocación de servicio. 
-Explora nuestra página para conocer nuestra oferta académica, nuestras actividades académicas y nuestros proyectos de investigación.
- ¡Descubre todo lo que la carrera Ciencias de la Educación tiene para ofrecerles!
+              </div>
+              <div className="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.3s">
+                <div className="h-100">
+                  <h3 className="mb-4">Visión</h3>
+                  <p className="mb-4 text-justify">
+                    {stripHtml(sanitizeText(institutionData?.institucion_vision))}
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-12 col-12 wow fadeInUp" data-wow-delay="0.5s">
+                <div className="h-100">
+                  <h3 className="mb-4">Objetivo</h3>
+                  <div
+                    className="text-justify"
+                    dangerouslySetInnerHTML={sanitizeHTML(
+                      institutionData?.institucion_objetivos,
+                    )}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <!-- bienvenida --> */}
 
-</h5>
-</div >
-    {/* Misión, Visión y Objetivos*/}
-    <div className="row g-4 py-5">
-      <div className="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.1s">
-        <div className="h-100">
-          <h3 className="mb-4">Misión</h3>
-          <p className="mb-4 text-justify">
-            {stripHtml(sanitizeText(institutionData?.institucion_mision))}
-          </p>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.3s">
-        <div className="h-100">
-          <h3 className="mb-4">Visión</h3>
-          <p className="mb-4 text-justify">
-            {stripHtml(sanitizeText(institutionData?.institucion_vision))}
-          </p>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-12 col-12 wow fadeInUp" data-wow-delay="0.5s">
-        <div className="h-100">
-          <h3 className="mb-4">Objetivo</h3>
-          <div
-            className="text-justify"
-            dangerouslySetInnerHTML={sanitizeHTML(
-              institutionData?.institucion_objetivos,
-            )}
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{/* <!-- bienvenida --> */}
-
-      {/* <!-- autoridades --> */}
+        {/* <!-- autoridades --> */}
         <div className="container-xxl py-3">
           <div className="container">
-             <div className="container-xxl py-5">
+            <div className="container-xxl py-5">
               <div className="container">
                 <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                   <h6 className="section-title bg-white text-center text-primary px-3">
@@ -203,16 +204,16 @@ Explora nuestra página para conocer nuestra oferta académica, nuestras activid
                     );
                   })}
                 </div>
-<div className="text-center mt-5 wow fadeInUp" data-wow-delay="0.3s">
-  <button 
-    onClick={() => setIsDirectorModalOpen(true)}
-    className="btn btn-warning btn-lg px-5 py-3 rounded-pill shadow-sm"
-    style={{ backgroundColor: '#ffc107', borderColor: '#ffc107', color: '#212529' }}
-  >
-    <i className="fas fa-user me-2"></i>
-    Perfil del Director de Carrera
-  </button>
-</div>
+                <div className="text-center mt-5 wow fadeInUp" data-wow-delay="0.3s">
+                  <button
+                    onClick={() => setIsDirectorModalOpen(true)}
+                    className="btn btn-warning btn-lg px-5 py-3 rounded-pill shadow-sm"
+                    style={{ backgroundColor: '#ffc107', borderColor: '#ffc107', color: '#212529' }}
+                  >
+                    <i className="fas fa-user me-2"></i>
+                    Perfil del Director de Carrera
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -220,11 +221,11 @@ Explora nuestra página para conocer nuestra oferta académica, nuestras activid
         {/* <!-- autoridades --> */}
       </main>
       {/* Modal del Director */}
-<DirectorPerfilModal 
-  isOpen={isDirectorModalOpen}
-  onClose={() => setIsDirectorModalOpen(false)}
-/>
+      <DirectorPerfilModal
+        isOpen={isDirectorModalOpen}
+        onClose={() => setIsDirectorModalOpen(false)}
+      />
     </>
-    
+
   );
 }
