@@ -33,17 +33,17 @@ export default function Footer() {
             <Link className="btn btn-link" href="/acerca">
               Acerca De
             </Link>
-            <Link className="btn btn-link" href="/comunicados">
-              Comunicados
+            <Link className="btn btn-link" href="/convenios">
+              Convenios Institucionales
             </Link>
             <Link className="btn btn-link" href="/biblioteca">
               Biblioteca
             </Link>
             <Link className="btn btn-link" href="/tramites">
-              Tramites
+              Admisión
             </Link>
             <Link className="btn btn-link" href="/cursos-actualizacion">
-              Cursos de actualización
+              Noticias y Eventos
             </Link>
           </div>
           <div className="col-lg-3 col-md-6">
@@ -65,7 +65,7 @@ export default function Footer() {
             <div className="d-flex pt-2">
               <a
                 className="btn btn-outline-light btn-social"
-                href={sanitizeURL(institutionData?.institucion_youtube)}
+                href={sanitizeURL(institutionData?.institucion_facebook)}
                 target="_blank"
               >
                 <i className="fab fa-facebook"></i>
@@ -85,7 +85,7 @@ export default function Footer() {
             <div className="d-flex pt-2">
               <a
                 className="btn btn-outline-light btn-social"
-                href="http://www.tiktok.com/@upea_somos_educacion"
+                href={sanitizeURL(institutionData?.institucion_twitter)}
                 target="_blank"
               >
                 <i className="fab fa-tiktok"></i>
