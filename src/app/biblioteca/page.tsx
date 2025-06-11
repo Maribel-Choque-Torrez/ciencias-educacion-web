@@ -14,7 +14,7 @@ export default function Page() {
   const { sanitize } = useDOMPurify();
   return (
     <>
-      <Banner title="Biblioteca" />
+      <Banner title="Biblioteca Digital" />
       <main>
         <div className="container-xxl py-5">
           <div className="container">
@@ -24,7 +24,24 @@ export default function Page() {
               </h6>
               <h1 className="mb-5">Visita nuestra Biblioteca</h1>
             </div>
-            <div className="row justify-content-center">
+            
+  <div className="container-xx d-flex justify-content-center">
+  <div className="container text-center">
+    <a
+      href="https://repositorio.upea.bo/jspui/handle/123456789/556"
+      target="_blank"
+      className="btn btn-lg btn-primary px-4 shadow-lg rounded-pill text-uppercase fw-bold"
+      style={{ 
+        fontSize: "1.1rem",
+        letterSpacing: "1px"
+      }}
+    >
+      Servicio de Biblioteca
+    </a>
+     <p>Muestra de algunos libros disponibles en la biblioteca de la Carrera Ciencias de la Educación</p>
+</div>
+        </div>
+            <div className="row justify-content-center py-5">
               {biblioteca &&
                 biblioteca.map((data) => (
                   <div
@@ -57,20 +74,6 @@ export default function Page() {
                   </div>
                 ))}
             </div>
-          </div>
-        </div>
-        <div className="container-xxl py-5 d-flex justify-content-center">
-          <div className="container text-center">
-            <h3>Servicio de Biblioteca</h3>
-            <p>Para acceder haga click en el siguiente enlace</p>
-            <a
-              href="https://repositorio.upea.bo/jspui/handle/123456789/556"
-              target="_blank"
-              className="btn btn-sm btn-primary px-3 border-end"
-              style={{ borderRadius: "30px 0 0 30px" }}
-            >
-              Servicio de Biblioteca
-            </a>
           </div>
         </div>
       </main>

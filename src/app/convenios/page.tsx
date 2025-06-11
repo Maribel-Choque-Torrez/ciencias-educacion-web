@@ -14,14 +14,14 @@ export default function Page() {
   const { sanitize } = useDOMPurify();
   return (
     <>
-      <Banner title="Comunicados" />
+      <Banner title="Convenios Institucionales" />
 
       <main className="container py-5">
         <div className="container">
           {/* Card 1 */}
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 className="section-title bg-white text-center text-primary px-3">
-              Comunicados
+              Convenios
             </h6>
             <h1 className="mb-5">Convenios Institucionales</h1>
           </div>

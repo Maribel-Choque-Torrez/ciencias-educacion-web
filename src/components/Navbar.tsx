@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   { id: "inicio", label: "Inicio", path: "/" },
   { id: "acerca", label: "Acerca de", path: "/acerca" },
-  { id: "comunicados", label: "Comunicados", path: "/comunicados" },
+  { id: "convenios", label: "Convenios Institucionales", path: "/convenios" },
   { id: "biblioteca", label: "Biblioteca", path: "/biblioteca" },
-  { id: "tramites", label: "Tramites", path: "/tramites" },
+  { id: "tramites", label: "Admisión", path: "/tramites" },
   {
     id: "cursos",
     label: "Cursos de Actualizacion",
@@ -43,14 +43,11 @@ export const Navbar = () => {
         href="/"
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <Image
-          src="/img/logo1.png"
-          alt="Logo"
-          width={180}
-          height={75}
-          style={{ width: "auto", height: "75px" }}
-          priority
-        />
+        <img
+              src="img/logo1.png"
+              alt="Logo"
+              style={{ width: "auto", height: "75px" }}
+            />
       </Link>
       <button
         type="button"
