@@ -24,52 +24,52 @@ export default function Page() {
       <main className="container-xxl py-5">
         <div className="container">
           {/* <!-- admisión convocatorias --> */}
-<div className="container-xxl py-3">
-  <div className="container">
-    <div className="container-xxl py-5">
-      <div className="container">
-        <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 className="section-title bg-white text-center text-primary px-3">
-            Admisiones
-          </h6>
-          <h3 className="h1 mb-5">Convocatorias de Admisión</h3>
-        </div>
-        
-        <div className="row g-4 justify-content-center">
-          {convocatorias &&
-            convocatorias.map((data) => (
-              <div
-                key={data.idconvocatorias}
-                className="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp"
-                data-wow-delay="0.1s"
-              >
-                <div className="team-item bg-light">
-                  <div className="overflow-hidden">
-                    <Image
-                      className="img-fluid"
-                      style={{ height: "100%" }}
-                      src={sanitizeURL(
-                        `${process.env.NEXT_PUBLIC_API_URL}/Convocatorias/${data.con_foto_portada}`
-                      )}
-                      alt=""
-                      width={500}
-                      height={500}
-                    />
+          <div className="container-xxl py-3">
+            <div className="container">
+              <div className="container-xxl py-5">
+                <div className="container">
+                  <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 className="section-title bg-white text-center text-primary px-3">
+                      Admisiones
+                    </h6>
+                    <h3 className="h1 mb-5">Convocatorias de Admisión</h3>
                   </div>
-                  <div className="text-center p-4">
-                    <h5 className="mb-0">
-                      {sanitizeText(data.con_titulo)}
-                    </h5>
+
+                  <div className="row g-4 justify-content-center">
+                    {convocatorias &&
+                      convocatorias.map((data) => (
+                        <div
+                          key={data.idconvocatorias}
+                          className="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp"
+                          data-wow-delay="0.1s"
+                        >
+                          <div className="team-item bg-light">
+                            <div className="overflow-hidden">
+                              <Image
+                                className="img-fluid"
+                                style={{ height: "100%" }}
+                                src={sanitizeURL(
+                                  `${process.env.NEXT_PUBLIC_API_URL}/Convocatorias/${data.con_foto_portada}`
+                                )}
+                                alt=""
+                                width={500}
+                                height={500}
+                              />
+                            </div>
+                            <div className="text-center p-4">
+                              <h5 className="mb-0">
+                                {sanitizeText(data.con_titulo)}
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>
-            ))}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{/* <!-- admision convocatorias --> */}
+            </div>
+          </div>
+          {/* <!-- admision convocatorias --> */}
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 className="section-title bg-white text-center text-primary px-3">
               Tramites
