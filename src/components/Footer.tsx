@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="col-lg-3 col-md-6">
             <h4 className="text-white mb-3">Enlaces rápidos</h4>
             <Link className="btn btn-link" href="/acerca">
-              Acerca De
+              Plan de Estudios
             </Link>
             <Link className="btn btn-link" href="/convenios">
               Convenios Institucionales

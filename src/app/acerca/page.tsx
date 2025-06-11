@@ -19,7 +19,7 @@ export default function Page() {
 
   return (
     <>
-      <Banner title="Acerca de la Carrera" />
+      <Banner title="Plan de Estudios" />
       <main>
        
 {/* <!-- plan de Estudio  --> */}
