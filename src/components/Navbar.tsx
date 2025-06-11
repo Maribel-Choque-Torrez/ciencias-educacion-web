@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   { id: "inicio", label: "Inicio", path: "/" },
   { id: "acerca", label: "Acerca de", path: "/acerca" },
-  { id: "comunicados", label: "Comunicados", path: "/comunicados" },
+  { id: "convenios", label: "Convenios Institucionales", path: "/convenios" },
   { id: "biblioteca", label: "Biblioteca", path: "/biblioteca" },
-  { id: "tramites", label: "Tramites", path: "/tramites" },
+  { id: "tramites", label: "Admisión", path: "/tramites" },
   {
     id: "cursos",
     label: "Cursos de Actualizacion",
@@ -28,14 +28,13 @@ const menuItems = [
       {
         id: "apoyo",
         label: "Apoyo Educativo",
-        path: "/apoyo"
+        path: "/apoyo",
       },
     ],
   },
 ];
 
 export const Navbar = () => {
-
   const pathname = usePathname();
 
   return (
@@ -44,14 +43,11 @@ export const Navbar = () => {
         href="/"
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <Image
-          src="/img/logo1.png"
-          alt="Logo"
-          width={180}
-          height={75}
-          style={{ width: "auto", height: "75px" }}
-          priority
-        />
+        <img
+              src="img/logo1.png"
+              alt="Logo"
+              style={{ width: "auto", height: "75px" }}
+            />
       </Link>
       <button
         type="button"
@@ -68,17 +64,19 @@ export const Navbar = () => {
               <div className="nav-item dropdown" key={item.id}>
                 <a
                   href={item.path}
-                  className={`nav-link dropdown-toggle ${(pathname === item.path || pathname === '/orientacion' || pathname === '/apoyo') ? "active" : ""}`}
+                  className={`nav-link dropdown-toggle ${pathname === item.path || pathname === "/orientacion" || pathname === "/apoyo" ? "active" : ""}`}
                   data-bs-toggle="dropdown"
                 >
                   {item.label}
                 </a>
-                <div className={`dropdown-menu fade-down m-0 text-center text-lg-start`}>
+                <div
+                  className={`dropdown-menu fade-down m-0 text-center text-lg-start`}
+                >
                   {item.subMenu?.map((child) => (
                     <Link
                       key={child.id}
                       href={child.path}
-                      className={`dropdown-item ${pathname === child.path ? 'active' : ''}`}
+                      className={`dropdown-item ${pathname === child.path ? "active" : ""}`}
                     >
                       {child.label}
                     </Link>
@@ -93,7 +91,7 @@ export const Navbar = () => {
               >
                 {item.label}
               </Link>
-            )
+            ),
           )}
         </div>
       </div>

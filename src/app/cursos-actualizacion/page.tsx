@@ -1,14 +1,19 @@
 "use client";
 import Banner from "@/components/Banner";
 import { cursosActualizacion } from "@/mocks/videosAll/cursosActualizacion";
-import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
+import {
+  sanitizeText,
+  sanitizeHTML,
+  sanitizeURL,
+  useDOMPurify,
+} from "@/util/sanitize";
 
 export default function Page() {
   const { sanitize } = useDOMPurify();
 
   return (
     <>
-      <Banner title="Cursos de Actualización" />
+      <Banner title="Noticias y Eventos" />
       <main className="container-xxl py-5">
         <div className="container">
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -43,9 +48,9 @@ export default function Page() {
                     </h6>
                     <h1 className="mb-4">{sanitizeText(data.video_titulo)}</h1>
                     <div
-                      dangerouslySetInnerHTML={
-                        sanitizeHTML(data.video_breve_descripcion)
-                      }
+                      dangerouslySetInnerHTML={sanitizeHTML(
+                        data.video_breve_descripcion,
+                      )}
                     />
                   </div>
                 </div>

@@ -39,14 +39,14 @@ export function useDOMPurify() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setIsLoading(true);
-      import('dompurify')
+      import("dompurify")
         .then((module) => {
           setDOMPurify(module.default);
           setIsLoading(false);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error("Error loading DOMPurify:", err);
           setIsLoading(false);
         });
@@ -54,20 +54,20 @@ export function useDOMPurify() {
   }, []);
 
   // Versiones mejoradas de las funciones que usan DOMPurify cuando está disponible
-  const sanitize = (content, type = 'text') => {
+  const sanitize = (content, type = "text") => {
     if (domPurify) {
       try {
         const sanitized = domPurify.sanitize(content);
-        if (type === 'html') return { __html: sanitized };
+        if (type === "html") return { __html: sanitized };
         return sanitized;
       } catch (error) {
         console.error("Error with DOMPurify:", error);
       }
     }
-    
+
     // Fallback a las funciones básicas
-    if (type === 'html') return sanitizeHTML(content);
-    if (type === 'url') return sanitizeURL(content);
+    if (type === "html") return sanitizeHTML(content);
+    if (type === "url") return sanitizeURL(content);
     return sanitizeText(content);
   };
 
@@ -77,6 +77,6 @@ export function useDOMPurify() {
     // También exportamos las funciones básicas por si las necesitas directamente
     sanitizeText,
     sanitizeHTML,
-    sanitizeURL
+    sanitizeURL,
   };
 }

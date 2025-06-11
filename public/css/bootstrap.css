@@ -51,6 +51,17 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+  .btn-primary:hover {
+    background-color: white !important;
+    color: #007bff !important;
+    border-color: #007bff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.373) !important;
+  }
+  
+  .btn-primary {
+    transition: all 0.3s ease;
+  }
 hr {
   margin: 1rem 0;
   color: inherit;
