@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="row g-5">
           <div className="col-lg-3 col-md-6">
             <img
-              src="img/logo1.png"
+              src={`${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/${institutionData?.institucion_logo}`}
               style={{ width: "auto", height: "195px" }}
               alt=""
             />

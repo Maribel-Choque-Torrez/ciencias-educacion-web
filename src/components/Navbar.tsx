@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useInstitutionData } from "@/hooks/useInstitutionData";
 
 const menuItems = [
   { id: "inicio", label: "Inicio", path: "/" },
@@ -36,6 +37,7 @@ const menuItems = [
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const { institutionData } = useInstitutionData();
 
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
@@ -44,7 +46,7 @@ export const Navbar = () => {
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
         <img
-          src="img/logo1.png"
+          src={`${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/${institutionData?.institucion_logo}`}
           alt="Logo"
           style={{ width: "auto", height: "75px" }}
         />
