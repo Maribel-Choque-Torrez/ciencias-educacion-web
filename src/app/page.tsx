@@ -113,7 +113,7 @@ export default function Page() {
               </h6>
               <h3 className="h1 mb-5">¡Bienvenidos a la brillante carrera de Ciencias de la Educación de la Universidad Pública de El Alto!</h3>
             </div>
-            <div className="text-center ">
+            {/*<div className="text-center ">
               <h5 className="text-primary">
                 En nuestra carrera fomentamos el desarrollo del pensamiento crítico, la innovación pedagógica y el compromiso de desarrollar profesionales de alto nivel.
                 Formamos profesionales con alto conocimiento, habilidades y destrezas, capaces de incursionar en el ámbito educativo y promover la construcción de una
@@ -123,7 +123,7 @@ export default function Page() {
                 Explora nuestra página para conocer nuestra oferta académica, nuestras actividades académicas y nuestros proyectos de investigación.
                 ¡Descubre todo lo que la carrera Ciencias de la Educación tiene para ofrecerles!
               </h5>
-            </div >
+            </div >*/}
             {/* Misión, Visión y Objetivos*/}
             <div className="row g-4 py-5">
               <div className="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.1s">
