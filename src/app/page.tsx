@@ -43,13 +43,12 @@ export default function Page() {
                 key={`portada-${index}`}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
-                <Image
+                <img
                   className="img-fluid w-100"
                   src={sanitizeURL(`${imgURL}/${data.portada_imagen}`)}
                   alt=""
                   width={1000}
                   height={500}
-                  priority
                 />
                 <div
                   className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
@@ -182,7 +181,7 @@ export default function Page() {
                         <div className="team-item bg-light">
                           <div className="overflow-hidden">
                             {imgSrc && (
-                              <Image
+                              <img
                                 className="img-fluid"
                                 style={{ height: "100%" }}
                                 src={imgSrc}

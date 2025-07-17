@@ -128,7 +128,7 @@ export default function Page() {
                     <div className="course-item bg-light">
                       <div className="position-relative overflow-hidden">
                         {imgSrc && (
-                          <Image
+                          <img
                             className="img-fluid"
                             src={imgSrc}
                             width={500}

@@ -45,7 +45,7 @@ export default function Page() {
                         >
                           <div className="team-item bg-light">
                             <div className="overflow-hidden">
-                              <Image
+                              <img
                                 className="img-fluid"
                                 style={{ height: "100%" }}
                                 src={sanitizeURL(
@@ -87,7 +87,7 @@ export default function Page() {
                   style={{ minHeight: "400px" }}
                 >
                   <div className="position-relative h-100">
-                    <Image
+                    <img
                       className="img-fluid position-absolute w-100 h-100"
                       width={1000}
                       height={100}
@@ -128,7 +128,7 @@ export default function Page() {
                   style={{ minHeight: "400px" }}
                 >
                   <div className="position-relative h-100">
-                    <Image
+                    <img
                       className="img-fluid position-absolute w-100 h-100"
                       width={1000}
                       height={100}
@@ -169,7 +169,7 @@ export default function Page() {
                   style={{ minHeight: "400px" }}
                 >
                   <div className="position-relative h-100">
-                    <Image
+                    <img
                       className="img-fluid position-absolute w-100 h-100"
                       width={1000}
                       height={100}
