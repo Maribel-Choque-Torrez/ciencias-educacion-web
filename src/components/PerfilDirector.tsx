@@ -51,18 +51,12 @@ export default function DirectorPerfilModal({ isOpen, onClose }: DirectorPerfilM
                   <ul className="list-unstyled">
                     <li className="mb-2">
                       <strong>Doctor en Ciencias de la Educación e Investigación, Ph.D.</strong>
-                      <br />
-                      <small className="text-muted">Universidad Mayor de San Andrés</small>
                     </li>
                     <li className="mb-2">
                       <strong>Magíster en Educación Superior</strong>
-                      <br />
-                      <small className="text-muted">Universidad Pública de El Alto</small>
                     </li>
                     <li className="mb-2">
                       <strong>Licenciado en Ciencias de la Educación</strong>
-                      <br />
-                      <small className="text-muted">Universidad Mayor de San Andrés</small>
                     </li>
                   </ul>
                 </div>
